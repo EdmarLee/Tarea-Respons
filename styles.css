@@ -15,7 +15,8 @@ body{
     margin: 0px auto;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(10, 1fr);
+    grid-template-rows: 1fr 150px 250px 250px 250px 
+                        1fr 1fr 1fr 1fr 1fr;
 
     grid-template-areas: "header header header" 
                          "nav nav nav"
@@ -69,7 +70,7 @@ body{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    max-height: 8vh;
+    min-height: 100%;
     background-color: rgb(24, 52, 56);
 }
 .nav a{
@@ -84,29 +85,64 @@ body{
 /*---------------------------------------------------------------------*/
 .contenedor .contenido{
     grid-area: contenido;
+    background-color: lightgray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.contenido .titulos{
+    text-align: center;
+}
+.contenedor .contenido .nota{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 70px 100px;
+    gap:30px;
+
+}
+
+.titulos h2{
+    text-transform: uppercase;
+}
+.titulos span{
+    color: red;
+}
+.lista ul li{
+    font-size: 14px;
+    list-style-type: none;
+}
+.lista ul li::before{
+    content: '✓';
+    color: red;
 }
 /*---------------------------------------------------------------------*/
 
-.contenedor .section{
-    grid-area: section;
-}
+
+
 /*---------------------------------------------------------------------*/
 .contenedor .article{
     grid-area: article;
+    background-color: blueviolet;
 }
 /*---------------------------------------------------------------------*/
 .contenedor .comentarios{
     grid-area: comentarios;
+    background-color: red;
 }
 /*---------------------------------------------------------------------*/
 .contenedor .footer{
     grid-area: footer;
+    background-color: chartreuse;
 }
 /*---------------------------------------------------------------------*/
 
 
 @media screen and (min-width: 600px) {
     .contenedor{
+        grid-template-rows: 1fr 50px 200px 200px 200px 
+                            1fr 1fr 1fr 1fr 1fr;
         grid-template-areas:
         "header header header" 
         "nav nav nav"
@@ -124,6 +160,10 @@ body{
     .contenedor .nav{
         flex-direction: column;
         height: auto;
-        max-height: 30vh;
+        max-height: 100px;
     } 
+    .contenedor .contenido .nota{
+        flex-direction: column;
+        padding: 30px 100px;
+    }
 }
