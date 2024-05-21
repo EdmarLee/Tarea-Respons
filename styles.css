@@ -16,7 +16,7 @@ body{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 1fr 150px 250px 250px 250px 
-                        1fr 1fr 1fr 1fr 1fr;
+                        1fr 60px;
 
     grid-template-areas: "header header header" 
                          "nav nav nav"
@@ -24,9 +24,6 @@ body{
                          "contenido contenido contenido"
                          "contenido contenido contenido"
                          "section section section"
-                         "article article article"
-                         "article article article"
-                         "comentarios comentarios comentarios"
                          "footer footer footer";
 }
 /*---------------------------------------------------------------------*/
@@ -118,31 +115,33 @@ body{
     color: red;
 }
 /*---------------------------------------------------------------------*/
-
-
-
-/*---------------------------------------------------------------------*/
-.contenedor .article{
-    grid-area: article;
-    background-color: blueviolet;
+.contenedor .section{
+    grid-area: section;
+    text-align: center;
+    padding: 20px;
 }
-/*---------------------------------------------------------------------*/
-.contenedor .comentarios{
-    grid-area: comentarios;
-    background-color: red;
+
+.cmtas img{
+    width: 300px;
 }
+
 /*---------------------------------------------------------------------*/
 .contenedor .footer{
     grid-area: footer;
-    background-color: chartreuse;
+    background-color: rgba(63, 129, 187, 0.075);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.logos img{
+    width: 35px;
 }
 /*---------------------------------------------------------------------*/
-
-
 @media screen and (min-width: 600px) {
     .contenedor{
         grid-template-rows: 1fr 50px 200px 200px 200px 
-                            1fr 1fr 1fr 1fr 1fr;
+                            440px 50px;
         grid-template-areas:
         "header header header" 
         "nav nav nav"
@@ -150,11 +149,25 @@ body{
         "contenido contenido contenido"
         "contenido contenido contenido"
         "section section section"
-        "comentarios article article"
-        "comentarios article article"
-        "comentarios article article"
         "footer footer footer" ;
     } 
+
+}
+
+@media screen and (min-width: 1257px) {
+    .contenedor{
+        grid-template-rows: 1fr 50px 200px 200px 200px 
+                            300px 50px;
+        grid-template-areas:
+        "header header header" 
+        "nav nav nav"
+        "contenido contenido contenido"
+        "contenido contenido contenido"
+        "contenido contenido contenido"
+        "section section section"
+        "footer footer footer" ;
+    }
+
 }
 @media screen and (max-width: 600px) {
     .contenedor .nav{
